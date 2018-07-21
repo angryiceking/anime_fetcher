@@ -1,11 +1,12 @@
 defmodule AnimeFetcher.AnimeController do
   use AnimeFetcher.Web, :controller
+  use HTTPoison.Base
 
   alias AnimeFetcher.Anime
 
   def index(conn, _params) do
     anime = Repo.all(Anime)
-    json conn, %{\
+    json conn, %{
         "name" => anime.name,
         "details" => anime.details,
         "img_src" => anime.img_src,
@@ -39,6 +40,17 @@ defmodule AnimeFetcher.AnimeController do
           "img_src" => anime.img_src,
         }
     }
+  end
+
+  def poison(conn, %{"search" => search}) do
+    HTTPoison.start
+    url = "https://myanimelist.net/search/prefix.json?type=anime&keyword="<>String.trim(search)<>"";
+    case HTTPoison.get(url) do
+      {:ok, %HTTPoison.Response{status_code: 200, body: body}} ->
+        text conn, body
+      {:error, %HTTPoison.Error{reason: reason}} ->
+        text conn, url
+    end
   end
 
   def get(conn, %{"name" => name}) do

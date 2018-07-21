@@ -17,31 +17,49 @@ import {Socket, Presence} from "phoenix"
 
 $('#search_input').keyup(function(e){
 	var val = $(this).val();
-	$.ajax({
-		url: 'get/api/'+val,
-		type: 'GET',
-		dataType:'json',
-		success: function(res){
-			$('#result_div').html('');
-			$.each(res, function(x, y){
-				$('#result_div').append(`
-					<li class="media">
-						<div class="media-left">
-						<a href="#">
-							<img class="media-object" src="https://myanimelist.cdn-dena.com/r/116x180/images/anime/2/18690.jpg?s=c5d374dcd236ef4de60c11c40c0cfebd" style="width: 100px; height: 100px;" alt="...">
-						</a>
-						</div>
-						<div class="media-body">
-							<h4 class="media-heading">`+res[x][0]+`</h4>
-							<small>
-								`+res[x][2]+`
-							</small>
-						</div>
-					</li>
-				`)
-			})
-		}
-	})
+	$('#typing').fadeIn(100);
+	$('#waiting').fadeOut(100);
+	if (e.keyCode == 13) {
+		$.ajax({
+			url: '/get/poison/'+val,
+			type: 'GET',
+			dataType: 'json',
+			success: function(res){
+				$('#typing').fadeOut(100);
+				$('#result_div').html('');
+				$.each(res.categories[0].items, function(x, y){
+					$('#search_label').fadeIn(500);
+					$('#search_result_label').html(val);
+					$('#result_div').append(`
+						<li class="media check_details" data-attr-name="`+res.categories[0].items[x].name+`" data-attr-desc="`+res.categories[0].items[x].url+`" data-attr-img="`+res.categories[0].items[x].thumbnail_url+`">
+							<div class="media-left">
+								<a href="#">
+									<img class="media-object" src="`+res.categories[0].items[x].thumbnail_url+`" style="width: 100px; height: 100px;" alt="...">
+								</a>
+							</div>
+							<div class="media-body">
+								<h4 class="media-heading">`+res.categories[0].items[x].name+`</h4>
+								<small>
+									`+res.categories[0].items[x].payload.status+`
+								</small>
+								<br/>
+								<small>Rating: `+res.categories[0].items[x].payload.score+`</small>
+							</div>
+						</li>
+					`)
+				})
+			},
+			error: function() {
+				$('#result_div').html('Error found or No results found.');
+			}
+		})
+	}
+	else if($(this).val() == '') {
+		$('#typing').fadeOut(100);
+		$('#waiting').fadeIn(100);
+		$('#search_label').fadeOut(500);
+		$('#result_div').html('');
+	}
 })
 // Import local files
 //

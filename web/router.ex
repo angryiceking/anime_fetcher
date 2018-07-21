@@ -24,6 +24,7 @@ defmodule AnimeFetcher.Router do
     pipe_through :api
 
     get "/api/:name", AnimeController, :get
+    get "/poison/:search", AnimeController, :poison
   end
 
   # Other scopes may use custom stacks.
