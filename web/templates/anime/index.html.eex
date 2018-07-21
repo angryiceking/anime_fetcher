@@ -1,0 +1,30 @@
+<h2>Listing anime</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Img src</th>
+      <th>Details</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for anime <- @anime do %>
+    <tr>
+      <td><%= anime.name %></td>
+      <td><%= anime.img_src %></td>
+      <td><%= anime.details %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: anime_path(@conn, :show, anime), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: anime_path(@conn, :edit, anime), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: anime_path(@conn, :delete, anime), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New anime", to: anime_path(@conn, :new) %>

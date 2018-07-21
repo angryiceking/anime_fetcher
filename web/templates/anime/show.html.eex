@@ -1,0 +1,23 @@
+<h2>Show anime</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @anime.name %>
+  </li>
+
+  <li>
+    <strong>Img src:</strong>
+    <%= @anime.img_src %>
+  </li>
+
+  <li>
+    <strong>Details:</strong>
+    <%= @anime.details %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: anime_path(@conn, :edit, @anime) %>
+<%= link "Back", to: anime_path(@conn, :index) %>

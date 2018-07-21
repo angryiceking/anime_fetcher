@@ -1,0 +1,6 @@
+<h2>Edit anime</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: anime_path(@conn, :update, @anime) %>
+
+<%= link "Back", to: anime_path(@conn, :index) %>
