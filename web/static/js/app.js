@@ -17,37 +17,31 @@ import {Socket, Presence} from "phoenix"
 
 $('#search_input').keyup(function(e){
 	var val = $(this).val();
-	if (e.keyCode == 13) {
-		$.ajax({
-			url: '/api',
-			type: 'GET',
-			dataType:'json',
-			success: function(res){
-				$.each(res, function(x, y){
-					if (~res[x][0].indexOf(val)) {
-						$('#result_div').append(`
-							<li class="media">
-								<div class="media-left">
-								<a href="#">
-									<img class="media-object" src="https://myanimelist.cdn-dena.com/r/116x180/images/anime/2/18690.jpg?s=c5d374dcd236ef4de60c11c40c0cfebd" style="width: 100px; height: 100px;" alt="...">
-								</a>
-								</div>
-								<div class="media-body">
-									<h4 class="media-heading">`+res[x][0]+`</h4>
-									<small>
-										`+res[x][2]+`
-									</small>
-								</div>
-							</li>
-						`)
-					}
-					else {
-						console.log('no results');
-					}
-				})
-			}
-		})
-	}
+	$.ajax({
+		url: 'get/api/'+val,
+		type: 'GET',
+		dataType:'json',
+		success: function(res){
+			$('#result_div').html('');
+			$.each(res, function(x, y){
+				$('#result_div').append(`
+					<li class="media">
+						<div class="media-left">
+						<a href="#">
+							<img class="media-object" src="https://myanimelist.cdn-dena.com/r/116x180/images/anime/2/18690.jpg?s=c5d374dcd236ef4de60c11c40c0cfebd" style="width: 100px; height: 100px;" alt="...">
+						</a>
+						</div>
+						<div class="media-body">
+							<h4 class="media-heading">`+res[x][0]+`</h4>
+							<small>
+								`+res[x][2]+`
+							</small>
+						</div>
+					</li>
+				`)
+			})
+		}
+	})
 })
 // Import local files
 //

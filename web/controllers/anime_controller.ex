@@ -41,8 +41,8 @@ defmodule AnimeFetcher.AnimeController do
     }
   end
 
-  def get(conn, _params) do
-    anime = Repo.all(from a in Anime, select: [a.name, a.img_src, a.details])
+  def get(conn, %{"name" => name}) do
+    anime = Repo.all(from a in Anime, where: like(a.name, ^("%#{name}%")), select: [a.name, a.img_src, a.details])
     json conn, anime
   end
 

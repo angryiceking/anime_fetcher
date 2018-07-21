@@ -20,12 +20,12 @@ defmodule AnimeFetcher.Router do
     resources "/anime", AnimeController
   end
 
-  scope "/", AnimeFetcher do
+  scope "/get", AnimeFetcher do
     pipe_through :api
 
-    get "/api", AnimeController, :get
+    get "/api/:name", AnimeController, :get
   end
-  
+
   # Other scopes may use custom stacks.
   # scope "/api", AnimeFetcher do
   #   pipe_through :api
