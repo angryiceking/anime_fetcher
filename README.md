@@ -43,6 +43,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ![](https://cdn.discordapp.com/attachments/430564751874064408/470441205436645387/part4.png)
 
 APIS
+
 `/get/api/:name` - where name = the search param. it will search items in your created database.
 
 `/get/poison/:search` - where search = the search param. it will search items in the MAL API.
@@ -50,16 +51,27 @@ APIS
 
 # self notes 
 run server @ Elixir/anime_fetcher && mix phoenix.server
+
 check all routes @ mix phoenix.routes
+
 migrate if you made changes in the model @ mix ecto.migrate
 
+
 enter postgresql to windows
+
 install postgresql
+
 open pgadmin
+
 login to the database
 
+
 thru cmd
+
 go to psql.exe inside PostgreSQL folder, usually found on C:/ProgramFiles/PostgreSQL
+
 run
+
 psql (database of anime, which is anime_fetcher_dev) postgres
+
 enter password
