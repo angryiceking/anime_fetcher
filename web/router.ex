@@ -16,6 +16,8 @@ defmodule AnimeFetcher.Router do
   scope "/", AnimeFetcher do
     pipe_through :browser # Use the default browser stack
 
+    post "/add", AnimeController, :add_to_model
+
     get "/", PageController, :index
     resources "/anime", AnimeController
   end
@@ -23,6 +25,7 @@ defmodule AnimeFetcher.Router do
   scope "/get", AnimeFetcher do
     pipe_through :api
 
+    get "/sample", AnimeController, :sample
     get "/api/:name", AnimeController, :get
     get "/poison/:search", AnimeController, :poison
   end

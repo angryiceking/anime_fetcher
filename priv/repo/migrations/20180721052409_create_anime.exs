@@ -6,6 +6,11 @@ defmodule AnimeFetcher.Repo.Migrations.CreateAnime do
       add :name, :string
       add :img_src, :string
       add :details, :string
+      add :thumbnail_img, :string
+      add :img_url, :string
+      add :score, :string
+      add :status, :string
+      add :ref_url :string
 
       timestamps()
     end
