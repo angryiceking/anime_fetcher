@@ -32,13 +32,13 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 # Simple Guide on How to use.
 
 1.) Once you started your server and its running, go to localhost:4000 to go to the index page
-!(https://cdn.discordapp.com/attachments/430564751874064408/470441117083500556/part1.png)
+![](https://cdn.discordapp.com/attachments/430564751874064408/470441117083500556/part1.png)
 2.) Search any anime you want using their anime titles as search parameters and it will run through the script searching MyAnimeList with the same title. Once successful, a list of result will be shown.
-!(https://cdn.discordapp.com/attachments/430564751874064408/470441171412451339/part2.png)
+![](https://cdn.discordapp.com/attachments/430564751874064408/470441171412451339/part2.png)
 3.) If you click in one of the result, it will display more info about the anime at the right corner, at the same time, the anime chosen will be saved to the database so that once searched again, it will not make request to the API avoiding slower search results.
-!(https://cdn.discordapp.com/attachments/430564751874064408/470441209073238017/part3.png)
+![](https://cdn.discordapp.com/attachments/430564751874064408/470441209073238017/part3.png)
 4.) There you have it, you can enjoy free APIs when you access this urls
-!(https://cdn.discordapp.com/attachments/430564751874064408/470441205436645387/part4.png)
+![](https://cdn.discordapp.com/attachments/430564751874064408/470441205436645387/part4.png)
 /get/api/:name - where name = the search param. it will search items in your created database.
 /get/poison/:search - where search = the search param. it will search items in the MAL API.
 
