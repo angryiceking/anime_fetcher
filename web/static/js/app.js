@@ -17,6 +17,8 @@ import {Socket, Presence} from "phoenix"
 
 $('#search_input').keyup(function(e){
 	var val = $(this).val();
+	console.log(val);
+	$('#start').fadeOut(100);
 	$('#typing').fadeIn(100);
 	$('#waiting').fadeOut(100);
 	if (e.keyCode == 13) {
@@ -92,18 +94,21 @@ $('#search_input').keyup(function(e){
 							onclick()
 						},
 						error: function() {
+							$('#typing').fadeOut(100);
 							$('#result_div').html('Error found or No results found.');
 						}
 					})
 				}
 			},
 			error: function() {
+				$('#typing').fadeOut(100);
 				$('#result_div').html('Error found or No results found.');
 			}
 		})
 	}
 	else if($(this).val() == '') {
 		$('#typing').fadeOut(100);
+		$('#start').fadeOut(100);
 		$('#waiting').fadeIn(100);
 		$('#search_label').fadeOut(500);
 		$('#result_div').html('');

@@ -6,11 +6,7 @@ defmodule AnimeFetcher.AnimeController do
 
   def index(conn, _params) do
     anime = Repo.all(Anime)
-    json conn, %{
-        "name" => anime.name,
-        "details" => anime.details,
-        "img_src" => anime.img_src,
-    }
+    render(conn, "index.html", anime: anime)
   end
 
   def new(conn, _params) do

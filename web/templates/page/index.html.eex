@@ -2,7 +2,7 @@
   <div class="col-md-8">
     <div class="col-md-12">
       <h4><strong>ANIME FETCHER</strong></h4>
-      <h5><strong>Search for any anime</strong></h5>
+      <h5><strong>Search for any anime</strong> --- start typing to find anime!</h5>
       <h6>source api: myanimelist.net</h6>
       <input type="text" name="search" id="search_input" class="form-control" placeholder="Search for anime and type enter">
     </div>
@@ -16,7 +16,7 @@
   </div>
   <div class="col-md-4">
     <div class="col-md-12" id="more_details">
-      
+
     </div>
   </div>
 </div>
