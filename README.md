@@ -38,3 +38,21 @@ Simple Guide on How to use.
 
 /get/api/:name - where name = the search param. it will search items in your created database.
 /get/poison/:search - where search = the search param. it will search items in the MAL API.
+
+
+#```self notes```
+
+run server @ Elixir/anime_fetcher && mix phoenix.server
+check all routes @ mix phoenix.routes
+migrate if you made changes in the model @ mix ecto.migrate
+
+enter postgresql to windows
+install postgresql
+open pgadmin
+login to the database
+
+thru cmd
+go to psql.exe inside PostgreSQL folder, usually found on C:/ProgramFiles/PostgreSQL
+run
+psql (database of anime, which is anime_fetcher_dev) postgres
+enter password
