@@ -39,8 +39,11 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 ![](https://cdn.discordapp.com/attachments/430564751874064408/470441209073238017/part3.png)
 4.) There you have it, you can enjoy free APIs when you access this urls
 ![](https://cdn.discordapp.com/attachments/430564751874064408/470441205436645387/part4.png)
-/get/api/:name - where name = the search param. it will search items in your created database.
-/get/poison/:search - where search = the search param. it will search items in the MAL API.
+
+APIS
+`/get/api/:name` - where name = the search param. it will search items in your created database.
+
+`/get/poison/:search` - where search = the search param. it will search items in the MAL API.
 
 
 # self notes 
