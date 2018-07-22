@@ -20,7 +20,9 @@ To start your Phoenix app:
   * configure your database connection in config/dev.exs
   
   * create database in your postgresql
+
   $ `mix phoenix.get.schema anime name:string img_src:string details:string thumbnail_img:string img_url:string score:string status:string ref_url:string`
+
   // more info at [https://hexdocs.pm/phoenix/ecto.html#the-repo]
   * run octo migrate
   $ `mix octo.migrate`
