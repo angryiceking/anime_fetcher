@@ -32,12 +32,16 @@ defmodule AnimeFetcher.AnimeController do
   end
 
   def add_to_model(conn, %{"anime" => anime_params}) do
-    changeset = Anime.changeset(%Anime{}, anime_params)
-    case Repo.insert(changeset) do
-      {:ok, _anime} ->
-        text conn, :success
-      {:error, changeset} ->
-        text conn, changeset
+    case Repo.all(from a in Anime, where: like(a.name, ^("%#{anime_params["name"]}%")), select: [a.name]) do
+      [] -> 
+        changeset = Anime.changeset(%Anime{}, anime_params)
+        case Repo.insert(changeset) do
+          {:ok, _anime} ->
+            text conn, :success
+          {:error, changeset} ->
+            text conn, changeset
+        end
+      anime -> text conn, "I have"
     end
   end
 
