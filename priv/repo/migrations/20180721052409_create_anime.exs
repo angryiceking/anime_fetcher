@@ -10,7 +10,7 @@ defmodule AnimeFetcher.Repo.Migrations.CreateAnime do
       add :img_url, :string
       add :score, :string
       add :status, :string
-      add :ref_url :string
+      add :ref_url, :string
 
       timestamps()
     end
