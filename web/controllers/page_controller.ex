@@ -6,6 +6,6 @@ defmodule AnimeFetcher.PageController do
   end
 
   def hello(conn, _params) do
-  	json conn, _params
+  	json conn, "{hello: 'woooorld!'}"
   end
 end

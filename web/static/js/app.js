@@ -25,6 +25,7 @@ $('#search_input').keyup(function(e){
 			type: 'GET',
 			dataType: 'json',
 			success: function(res){
+				console.log(res);
 				if (res != "") {
 					$('#typing').fadeOut(100);
 					$('#result_div').html('');
@@ -32,7 +33,7 @@ $('#search_input').keyup(function(e){
 						$('#search_label').fadeIn(500);
 						$('#search_result_label').html(val);
 						$('#result_div').append(`
-							<li class="media" style="border: 2px solid #34495e; margin: 4px 4px 4px 4px; padding: 4px 4px 4px 4px;" data-attr-name="`+res[x][0]+`" data-attr-desc="`+res[x][1]+`" data-attr-img="`+res[x][2]+`" data-attr-status="`+res[x][3]+`" data-attr-media_type="`+res[x][4]+`" data-attr-score="`+res[x][5]+`">
+							<li class="media check_details_not_add" style="border: 2px solid #34495e; margin: 4px 4px 4px 4px; padding: 4px 4px 4px 4px;" data-attr-name="`+res[x][0]+`" data-attr-desc="`+res[x][1]+`" data-attr-img="`+res[x][2]+`" data-attr-status="`+res[x][3]+`" data-attr-media_type="`+res[x][4]+`" data-attr-score="`+res[x][5]+`">
 								<a href="#">
 									<div class="media-left">
 										<a href="#" >
@@ -125,19 +126,21 @@ function onclick() {
 			`)
 
 		var csrf = document.querySelector("meta[name=csrf]").content;
-		console.log(csrf);
+		// console.log(csrf);
 		var data = {
 			"name": $(this).attr('data-attr-name'),
 			"ref_url": $(this).attr('data-attr-desc'),
-			"thumbnail_url": $(this).attr('data-attr-thumb'),
+			"thumbnail_img": $(this).attr('data-attr-img'),
 			"status": $(this).attr('data-attr-status'),
 			"score": $(this).attr('data-attr-score'),
 			"img_url": $(this).attr('data-attr-img'),
 			"img_src": $(this).attr('data-attr-img'),
 			"details": $(this).attr('data-attr-media_type'),
-			"details": get_date(),
-			"details": get_date(),
+			"inserted_at": get_date(),
+			"updated_at": get_date(),
 		}
+
+		// console.log(data);
 
 		$.ajax({
 			url: 'add/',
@@ -153,6 +156,21 @@ function onclick() {
 				console.log(res)
 			}
 		})
+	});
+
+	$('.check_details_not_add').on('click', function(e){
+		$('#more_details').html(`
+			<div class="col-md-12">
+				<img class="img img-responsive" src="`+$(this).attr('data-attr-img')+`" style="margin-top: 164px; border: 1px 1px 1px 1px solid #34495e; height:550px; width: 600px;">
+			</div>
+			<div class="col-md-12">
+				<hr>
+				<span class="badge">`+$(this).attr('data-attr-media_type')+`</span>
+				<h4>`+$(this).attr('data-attr-name')+` </h4>
+				<h4> `+$(this).attr('data-attr-status')+`</h4>
+				<h4> more details at <a href="`+$(this).attr('data-attr-desc')+`" class="btn btn-link">My Anime List Page</a></h4>
+			</div>
+			`)
 	});
 }
 

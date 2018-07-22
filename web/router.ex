@@ -25,7 +25,6 @@ defmodule AnimeFetcher.Router do
   scope "/get", AnimeFetcher do
     pipe_through :api
 
-    get "/sample", AnimeController, :sample
     get "/api/:name", AnimeController, :get
     get "/poison/:search", AnimeController, :poison
   end

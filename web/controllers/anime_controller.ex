@@ -37,7 +37,7 @@ defmodule AnimeFetcher.AnimeController do
       {:ok, _anime} ->
         text conn, :success
       {:error, changeset} ->
-        text conn, :error
+        text conn, changeset
     end
   end
 
@@ -63,14 +63,8 @@ defmodule AnimeFetcher.AnimeController do
     end
   end
 
-  def sample(conn, _params) do
-    word = "Full M"
-    result = AnimeFetcher.AnimeController.get/1
-    text conn, result
-  end
-
   def get(conn, %{"name" => name}) do
-    anime = Repo.all(from a in Anime, where: like(a.name, ^("%#{name}%")), select: [a.name, a.details, a.img_src])
+    anime = Repo.all(from a in Anime, where: like(a.name, ^("%#{name}%")), select: [a.name, a.details, a.img_src, a.status, a.ref_url, a.score])
     json conn, anime
   end
 
