@@ -19,9 +19,6 @@ To start your Phoenix app:
   
   * configure your database connection in config/dev.exs
   
-  * create database in your postgresql by running ecto schema
-  // more info at [https://hexdocs.pm/phoenix/ecto.html#the-repo]
-  $ `mix ecto.migrate`
 
 Versions:
 
@@ -61,7 +58,11 @@ migrate if you made changes in the model @ mix ecto.migrate
 
 $ `mix phoenix.get.schema anime name:string img_src:string details:string thumbnail_img:string img_url:string score:string status:string ref_url:string`
 (will generate schema, and table inside your database in postgres)
-
+(
+  * create database in your postgresql by running ecto schema
+  // more info at [https://hexdocs.pm/phoenix/ecto.html#the-repo]
+  $ `mix ecto.migrate`
+)
 enter postgresql to windows
 
 install postgresql
