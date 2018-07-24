@@ -59,6 +59,8 @@ check all routes @ mix phoenix.routes
 
 migrate if you made changes in the model @ mix ecto.migrate
 
+$ `mix phoenix.get.schema anime name:string img_src:string details:string thumbnail_img:string img_url:string score:string status:string ref_url:string`
+(will generate schema, and table inside your database in postgres)
 
 enter postgresql to windows
 
