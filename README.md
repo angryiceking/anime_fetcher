@@ -20,6 +20,8 @@ To start your Phoenix app:
   * Install dependencies with 
   $ `mix deps.get`
   
+  * configure your database connection in config/dev.exs
+  
   * Create and migrate your database with 
   $ `mix ecto.create && mix ecto.migrate`
   
@@ -29,7 +31,6 @@ To start your Phoenix app:
   * Start Phoenix endpoint with 
   $ `mix phoenix.server`
   
-  * configure your database connection in config/dev.exs
   
 
 
