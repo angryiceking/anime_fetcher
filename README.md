@@ -4,6 +4,18 @@
 
 credits to MyAnimeList.net for the API.
 
+Install Elixir: https://elixir-lang.org/install.html
+
+
+
+Versions:
+
+Elixir Version: 1.6.6
+
+Erlang 19
+
+
+
 To start your Phoenix app:
   * Install dependencies with 
   $ `mix deps.get`
@@ -19,12 +31,6 @@ To start your Phoenix app:
   
   * configure your database connection in config/dev.exs
   
-
-Versions:
-
-Elixir Version: 1.6.6
-
-Erlang 19
 
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
